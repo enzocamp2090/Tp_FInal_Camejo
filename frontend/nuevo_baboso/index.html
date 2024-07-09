@@ -8,6 +8,107 @@
 </head>
 
 <body>
+    <header>
+        <h1>Diario de Babosos</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Lista de Babosos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <form id="form_baboso">
+                <h2>Nuevo Baboso</h2>
+                <div class="info_basica">
+                    <div>
+                        <label for="numero">Ingrese número de baboso</label>
+                        <input id="numero" type="number" name="numero"/>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="lugar_acercamiento">¿Dónde se te acercó?</label>
+                        <input type="text" id="lugar_acercamiento" name="lugar_acercamiento" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="tiempo_declararse">¿Cuánto tiempo le llevó declararse?</label>
+                        <input type="number" id="tiempo_declararse" name="tiempo_declararse" required>
+                    </div>
+                    <br>
+                    <select id="forma" name="forma">
+                        <option value="">--En qué forma apareció?--</option>
+                        <option value="poeta_perdido">Poeta perdido</option>
+                        <option value="maniaco_descarado">Maníaco descarado</option>
+                        <option value="hombre_sabio">Hombre sabio</option>
+                        <option value="falso_pretendiente">Falso pretendiente</option>
+                        <option value="felpudo_sotano">Felpudo de sótano</option>
+                        <option value="seductologo">Seductólogo</option>
+                    </select>
+                </div>
+                
+                <div class="propuestas">
+                    <h3>Votemos sus propuestas:</h3>
+                    <div class="contenedor_propuestas">
+                        <div>
+                            <label for="indecentes">Indecentes</label>
+                            <input type="range" id="indecentes" name="indecentes">
+                        </div>
+                        <div>
+                            <label for="previsibles">Previsibles</label>
+                            <input type="range" id="previsibles" name="previsibles">
+                        </div>
+                        <div>
+                            <label for="divertidos">Divertidos</label>
+                            <input type="range" id="divertidos" name="divertidos">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="personalidad">
+                    <h3>Votemos al baboso:</h3>
+                    <div class="contenedor_personalidad">
+                        <div>
+                            <label for="autoestima">Autoestima</label>
+                            <input type="range" id="autoestima" name="autoestima">
+                        </div>
+                        <div>
+                            <label for="insistencia">Insistencia</label>
+                            <input type="range" id="insistencia" name="insistencia">
+                        </div>
+                        <div>
+                            <label for="originalidad">Originalidad</label>
+                            <input type="range" id="originalidad" name="originalidad">
+                        </div> 
+                    </div>
+                </div>
+
+                <div>
+                    <label for="frase">Su frase ingeniosa o truco para conquistarte:</label>
+                    <textarea id="frase" name="frase" required></textarea>
+                </div>
+                <div>
+                    <label for="respuesta">¿Qué le respondiste?:</label>
+                    <textarea id="respuesta" name="respuesta" required></textarea>
+                </div>
+                <select id="veredicto" name="veredicto">
+                    <option value="">--Veredicto final--</option>
+                    <option value="cerdo">Otro cerdo disfrazado de ángel</option>
+                    <option value="futuro_seductor">Qué puedo decir... ¡un futuro seductor!</option>
+                    <option value="sin_remedio">Lo siento... un caso humano sin remedio</option>
+                </select>
+                <br>
+                <br>
+                <button type="submit">Agregar</button>
+            </form>
+        </section>
+    </main>
+
 </body>
 
 </html>
