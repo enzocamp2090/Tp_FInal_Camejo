@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalles del Baboso</title>
+</head>
+
+<body>
+    <header>
+        <h1>Diario de Babosos</h1>
+        <nav>
+            <ul>
+                <li><a href="../nuevo_baboso/index.html">Agregar Baboso</a></li>
+                <li><a href="../index.html">Lista de Babosos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="contenedor my-4">
+            <div class="fila">
+                <div class="col-12 col-md-10 mx-auto">
+                    <div class="carta">
+                        <div class="carta-body">
+                            <div class="fila">
+                                <div class="col-6">
+                                    <h2 id="nombre"></h2>
+                                    <p id="numero"></p>
+                                    <p id="lugar_acercamiento"></p>
+                                    <p id="tiempo_declararse"></p>
+                                    <p id="forma"></p>
+                                    <h5>Propuestas:</h5>
+                                    <ul id="propuestas">
+                                        <li id="indecentes"></li>
+                                        <li id="previsibles"></li>
+                                        <li id="divertidos"></li>
+                                    </ul>
+                                    <h5>Personalidad:</h5>
+                                    <ul id="personalidad">
+                                        <li id="autoestima"></li>
+                                        <li id="insistencia"></li>
+                                        <li id="originalidad"></li>
+                                    </ul>
+                                    <p id="frase"></p>
+                                    <p id="respuesta"></p>
+                                    <p id="veredicto"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carta-footer">
+                            <button class="btn btn-danger" onclick="eliminar_baboso()">Eliminar</button>
+                            <a id="btnEdit" class="btn btn-warning" href="editar/index.html">Editar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
