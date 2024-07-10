@@ -135,55 +135,63 @@
             .then((respuesta) => respuesta.json())
             .then(manejar_respuesta_GET)
             .catch((error) => console.log("ERROR", error));
-
-            function editar_baboso(evento) {
-                evento.preventDefault();
-    
-                const formData = new FormData(evento.target);
-    
-                const numero = formData.get("numero");
-                const nombre = formData.get("nombre");
-                const lugar_acercamiento = formData.get("lugar_acercamiento");
-                const tiempo_declararse = formData.get("tiempo_declararse");
-                const forma = formData.get("forma");
-                const indecentes = formData.get("indecentes");
-                const previsibles = formData.get("previsibles");
-                const divertidos = formData.get("divertidos");
-                const autoestima = formData.get("autoestima");
-                const insistencia = formData.get("insistencia");
-                const originalidad = formData.get("originalidad");
-                const frase = formData.get("frase");
-                const respuesta = formData.get("respuesta");
-                const veredicto = formData.get("veredicto");
-    
-                fetch("http://localhost:5000/babosos", {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        id: id,
-                        numero: numero,
-                        nombre: nombre,
-                        lugar_acercamiento: lugar_acercamiento,
-                        tiempo_declararse: tiempo_declararse,
-                        forma: forma,
-                        indecentes: indecentes,
-                        previsibles: previsibles,
-                        divertidos: divertidos,
-                        autoestima: autoestima,
-                        insistencia: insistencia,
-                        originalidad: originalidad,
-                        frase: frase,
-                        respuesta: respuesta,
-                        veredicto: veredicto
-                    })
-                })
-    
-                    .then((res) => res.json())
-                    .then(manejar_respuesta)
-                    .catch((error) => console.log("ERROR", error))
+        
+        function manejar_respuesta(dato) {
+            if (dato.success) {
+                window.location.href = `/baboso?id=${dato.id}`;
+            } else {
+                alert("Error");
             }
+        }
+
+        function editar_baboso(evento) {
+            evento.preventDefault();
+
+            const formData = new FormData(evento.target);
+
+            const numero = formData.get("numero");
+            const nombre = formData.get("nombre");
+            const lugar_acercamiento = formData.get("lugar_acercamiento");
+            const tiempo_declararse = formData.get("tiempo_declararse");
+            const forma = formData.get("forma");
+            const indecentes = formData.get("indecentes");
+            const previsibles = formData.get("previsibles");
+            const divertidos = formData.get("divertidos");
+            const autoestima = formData.get("autoestima");
+            const insistencia = formData.get("insistencia");
+            const originalidad = formData.get("originalidad");
+            const frase = formData.get("frase");
+            const respuesta = formData.get("respuesta");
+            const veredicto = formData.get("veredicto");
+
+            fetch("http://localhost:5000/babosos", {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: id,
+                    numero: numero,
+                    nombre: nombre,
+                    lugar_acercamiento: lugar_acercamiento,
+                    tiempo_declararse: tiempo_declararse,
+                    forma: forma,
+                    indecentes: indecentes,
+                    previsibles: previsibles,
+                    divertidos: divertidos,
+                    autoestima: autoestima,
+                    insistencia: insistencia,
+                    originalidad: originalidad,
+                    frase: frase,
+                    respuesta: respuesta,
+                    veredicto: veredicto
+                })
+            })
+
+                .then((res) => res.json())
+                .then(manejar_respuesta)
+                .catch((error) => console.log("ERROR", error))
+        }
     </scrip>
 
 </body>
