@@ -113,6 +113,11 @@
         if (id === null) {
             window.location.href = "../../index.html";
         }
+
+        fetch(`http://localhost:5000/babosos/${id}`)
+            .then((respuesta) => respuesta.json())
+            .then(manejar_respuesta_GET)
+            .catch((error) => console.log("ERROR", error));
     </scrip>
 
 </body>
