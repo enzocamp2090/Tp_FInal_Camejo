@@ -128,10 +128,24 @@
         }
 
         fetch(`http://localhost:5000/babosos/${id}`)
-        .then(obtener_respuesta)
-        .then(analizar_baboso)
-        .catch(manejar_error);
+            .then(obtener_respuesta)
+            .then(analizar_baboso)
+            .catch(manejar_error);
 
+        function eliminar_baboso() {
+            const confirmation = confirm(`¿Estás seguro de que quieres eliminar al baboso ${id}?`);
+            if (!confirmation) {
+                return;
+            }
+
+            fetch(
+                `http://localhost:5000/babosos/${id}`,
+                { method: "DELETE" }
+            )
+                .then((res) => res.json())
+                .then(eliminar_respuesta)
+                .catch(manejar_error);
+    }
     </script>
 </body>
 
