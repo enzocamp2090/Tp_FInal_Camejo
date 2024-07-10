@@ -114,6 +114,23 @@
             window.location.href = "../../index.html";
         }
 
+        function manejar_respuesta_GET(dato) {
+            document.getElementById("numero").value = dato.numero;
+            document.getElementById("nombre").value = dato.nombre;
+            document.getElementById("lugar_acercamiento").value = dato.lugar_acercamiento;
+            document.getElementById("tiempo_declararse").value = dato.tiempo_declararse;
+            document.getElementById("forma").value = dato.forma;
+            document.getElementById("indecentes").value = dato.indecentes;
+            document.getElementById("previsibles").value = dato.previsibles;
+            document.getElementById("divertidos").value = dato.divertidos;
+            document.getElementById("autoestima").value = dato.autoestima;
+            document.getElementById("insistencia").value = dato.insistencia;
+            document.getElementById("originalidad").value = dato.originalidad;
+            document.getElementById("frase").value = dato.frase;
+            document.getElementById("respuesta").value = dato.respuesta;
+            document.getElementById("veredicto").value = dato.veredicto;
+        }
+
         fetch(`http://localhost:5000/babosos/${id}`)
             .then((respuesta) => respuesta.json())
             .then(manejar_respuesta_GET)
