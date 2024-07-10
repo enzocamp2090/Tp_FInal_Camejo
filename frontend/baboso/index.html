@@ -75,6 +75,10 @@
 
         document.getElementById("btnEdit").setAttribute("href", `/baboso/edit?id=${id}`);
 
+        function obtener_respuesta(respuesta) {
+            return respuesta.json();
+        }
+
         fetch(`http://localhost:5000/babosos/${id}`)
         .then(obtener_respuesta)
         .then(analizar_baboso)
