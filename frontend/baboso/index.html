@@ -56,7 +56,7 @@
                         </div>
                         <div class="carta-footer">
                             <button class="btn btn-danger" onclick="eliminar_baboso()">Eliminar</button>
-                            <a id="btnEdit" class="btn btn-warning" href="editar/index.html">Editar</a>
+                            <a id="btnEdit" class="btn btn-warning" href="editar_baboso/index.html">Editar</a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
             window.location.href = "../index.html";
         }
 
-        document.getElementById("btnEdit").setAttribute("href", `/baboso/edit?id=${id}`);
+        document.getElementById("btnEdit").setAttribute("href", `/baboso/editar_baboso?id=${id}`);
 
         function obtener_respuesta(respuesta) {
             return respuesta.json();
