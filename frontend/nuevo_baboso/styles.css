@@ -52,13 +52,17 @@ section {
     max-width: 600px;
 }
 
-h2, h3 {
+h2, 
+h3 {
     text-align: center;
     font-family: 'Titan One', sans-serif;
     color:  #5a1e22;
 }
 
-input[type="text"], input[type="number"], select, textarea{
+input[type="text"],
+input[type="number"], 
+select, 
+textarea {
     color: #5a1e22;
     width: 100%;
     padding: 8px;
@@ -82,66 +86,7 @@ button {
     font-size: 1em;
 }
 
-#babosos_cargados {
-    list-style: none;
-    margin: 20px;
-    width: 100%;
-    max-width: 600px;
-}
-
-#babosos_cargados li {
-    background-color: #fff;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#babosos_cargados li button {
-    background-color: #ff4d4d;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-#babosos_cargados li button:hover {
-    background-color: #ff3333;
-}
-
-.propuestas {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.propuestas h3 {
-    text-align: center;
-    font-size: 1.4em;
-}
-
-.contenedor_propuestas {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.contenedor_propuestas label {
-    margin-right: 10px;
-    width: 100%;
-    text-align: right;
-    color: #5a1e22
-}
-
+.propuestas,
 .personalidad {
     display: flex;
     align-items: center;
@@ -153,11 +98,13 @@ button {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.propuestas h3,
 .personalidad h3 {
     text-align: center;
     font-size: 1.4em;
 }
 
+.contenedor_propuestas,
 .contenedor_personalidad {
     display: flex;
     flex-direction: column;
@@ -165,6 +112,7 @@ button {
     margin-bottom: 10px;
 }
 
+.contenedor_propuestas label, 
 .contenedor_personalidad label {
     margin-right: 10px;
     width: 100%;
