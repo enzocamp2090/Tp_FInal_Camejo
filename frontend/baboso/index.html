@@ -132,6 +132,15 @@
             .then(analizar_baboso)
             .catch(manejar_error);
 
+        function eliminar_respuesta(datos) {
+            if (datos.success) {
+                alert("Baboso eliminado exitosamente");
+                window.location.href = "../index.html";
+            } else {
+                alert("Error al eliminar el baboso");
+            }
+        }
+
         function eliminar_baboso() {
             const confirmation = confirm(`¿Estás seguro de que quieres eliminar al baboso ${id}?`);
             if (!confirmation) {
