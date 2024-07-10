@@ -123,6 +123,10 @@
             veredicto.innerText = `Veredicto: ${baboso.veredicto}`;
         }
 
+        function manejar_error(error) {
+            console.log("Error!", error);
+        }
+
         fetch(`http://localhost:5000/babosos/${id}`)
         .then(obtener_respuesta)
         .then(analizar_baboso)
