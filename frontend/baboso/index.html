@@ -75,7 +75,11 @@
 
         document.getElementById("btnEdit").setAttribute("href", `/baboso/edit?id=${id}`);
 
-        
+        fetch(`http://localhost:5000/babosos/${id}`)
+        .then(obtener_respuesta)
+        .then(analizar_baboso)
+        .catch(manejar_error);
+
     </script>
 </body>
 
