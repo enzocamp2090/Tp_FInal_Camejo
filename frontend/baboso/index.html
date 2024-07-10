@@ -79,6 +79,50 @@
             return respuesta.json();
         }
 
+        function analizar_baboso(baboso) {
+            const nombre = document.getElementById("nombre");
+            nombre.innerText = baboso.nombre;
+
+            const numero = document.getElementById("numero");
+            numero.innerText = `Número: ${baboso.numero}`;
+
+            const lugar_acercamiento = document.getElementById("lugar_acercamiento")
+            lugar_acercamiento.innerText = `Lugar de acercamiento: ${baboso.lugar_acercamiento}`;
+            
+            const tiempo_declararse = document.getElementById("tiempo_declararse")
+            tiempo_declararse.innerText = `Tiempo para declararse: ${baboso.tiempo_declararse} días`;
+
+            const forma = document.getElementById("forma");
+            forma.innerText = `Forma: ${baboso.forma}`;
+            
+            const indecentes = document.getElementById("indecentes");
+            indecentes.innerText = `Indecentes: ${baboso.indecentes}`;
+            
+            const previsibles = document.getElementById("previsibles");
+            previsibles.innerText = `Previsibles: ${baboso.previsibles}`;
+            
+            const divertidos = document.getElementById("divertidos");
+            divertidos.innerText = `Divertidos: ${baboso.divertidos}`;
+            
+            const autoestima = document.getElementById("autoestima");
+            autoestima.innerText = `Autoestima: ${baboso.autoestima}`;
+
+            const insistencia = document.getElementById("insistencia");
+            insistencia.innerText = `Insistencia: ${baboso.insistencia}`;
+            
+            const originalidad = document.getElementById("originalidad");
+            originalidad.innerText = `Originalidad: ${baboso.originalidad}`;
+            
+            const frase = document.getElementById("frase");
+            frase.innerText = `Frase: ${baboso.frase}`;
+
+            const respuesta = document.getElementById("respuesta");
+            respuesta.innerText = `Respuesta: ${baboso.respuesta}`;
+            
+            const veredicto = document.getElementById("veredicto");
+            veredicto.innerText = `Veredicto: ${baboso.veredicto}`;
+        }
+
         fetch(`http://localhost:5000/babosos/${id}`)
         .then(obtener_respuesta)
         .then(analizar_baboso)
