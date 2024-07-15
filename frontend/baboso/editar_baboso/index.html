@@ -114,6 +114,10 @@
             window.location.href = "../../index.html";
         }
 
+        function recibir_respuesta(respuesta) {
+            return respuesta.json()
+        }
+
         function manejar_respuesta_GET(dato) {
             document.getElementById("numero").value = dato.numero;
             document.getElementById("nombre").value = dato.nombre;
@@ -131,10 +135,15 @@
             document.getElementById("veredicto").value = dato.veredicto;
         }
 
+        function manejar_error(error) {
+            console.log("ERROR")
+            console.log(error);
+        }
+
         fetch(`http://localhost:5000/babosos/${id}`)
-            .then((respuesta) => respuesta.json())
+            .then(recibir_respuesta)
             .then(manejar_respuesta_GET)
-            .catch((error) => console.log("ERROR", error));
+            .catch(manejar_error);
         
         function manejar_respuesta(dato) {
             if (dato.success) {
@@ -188,12 +197,10 @@
                 })
             })
 
-                .then((res) => res.json())
+                .then(recibir_respuesta)
                 .then(manejar_respuesta)
-                .catch((error) => console.log("ERROR", error))
+                .catch(manejar_error)
         }
     </scrip>
-
 </body>
-
 </html>
