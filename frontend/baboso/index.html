@@ -32,7 +32,6 @@
                             <div class="fila">
                                 <div class="col-6">
                                     <h2 id="nombre"></h2>
-                                    <p id="numero"></p>
                                     <p id="lugar_acercamiento"></p>
                                     <p id="tiempo_declararse"></p>
                                     <p id="forma"></p>
@@ -82,9 +81,6 @@
         function analizar_baboso(baboso) {
             const nombre = document.getElementById("nombre");
             nombre.innerText = baboso.nombre;
-
-            const numero = document.getElementById("numero");
-            numero.innerText = `Número: ${baboso.numero}`;
 
             const lugar_acercamiento = document.getElementById("lugar_acercamiento")
             lugar_acercamiento.innerText = `Lugar de acercamiento: ${baboso.lugar_acercamiento}`;

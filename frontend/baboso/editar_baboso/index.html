@@ -29,10 +29,6 @@
                 <h2>Editar Baboso</h2>
                 <div class="info_basica">
                     <div>
-                        <label for="numero">Número</label>
-                        <input type="number" id="numero" name="numero" required>
-                    </div>
-                    <div>
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
@@ -119,7 +115,6 @@
         }
 
         function manejar_respuesta_GET(dato) {
-            document.getElementById("numero").value = dato.numero;
             document.getElementById("nombre").value = dato.nombre;
             document.getElementById("lugar_acercamiento").value = dato.lugar_acercamiento;
             document.getElementById("tiempo_declararse").value = dato.tiempo_declararse;
@@ -158,7 +153,6 @@
 
             const formData = new FormData(evento.target);
 
-            const numero = formData.get("numero");
             const nombre = formData.get("nombre");
             const lugar_acercamiento = formData.get("lugar_acercamiento");
             const tiempo_declararse = formData.get("tiempo_declararse");
@@ -180,7 +174,6 @@
                 },
                 body: JSON.stringify({
                     id: id,
-                    numero: numero,
                     nombre: nombre,
                     lugar_acercamiento: lugar_acercamiento,
                     tiempo_declararse: tiempo_declararse,

@@ -29,11 +29,6 @@
                 <h2>Nuevo Baboso</h2>
                 <div class="info_basica">
                     <div>
-                        <label for="numero">Ingrese número de baboso</label>
-                        <input id="numero" type="number" name="numero"/>
-                    </div>
-                    <br>
-                    <div>
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" required>
                     </div>
@@ -142,7 +137,6 @@
             const formData = new FormData(evento.target);
             
             const baboso = {
-                numero: formData.get("numero"),
                 nombre: formData.get("nombre"),
                 lugar_acercamiento: formData.get("lugar_acercamiento"),
                 tiempo_declararse: formData.get("tiempo_declararse"),
