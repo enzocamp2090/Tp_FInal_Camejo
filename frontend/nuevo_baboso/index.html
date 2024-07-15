@@ -44,7 +44,7 @@
                     </div>
                     <br>
                     <div>
-                        <label for="tiempo_declararse">¿Cuánto tiempo le llevó declararse?</label>
+                        <label for="tiempo_declararse">¿Cuántos días le llevó declararse?</label>
                         <input type="number" id="tiempo_declararse" name="tiempo_declararse" required>
                     </div>
                     <br>
@@ -118,17 +118,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+        function recibir_respuesta(respuesta) {
+            return respuesta.json()
+        }
+        
         function procesar_respuesta(datos) {
             if (datos.success) {
-                alert('Baboso agregado exitosamente');
+                alert("Baboso agregado exitosamente");
                 window.location.href = `/baboso?id=${datos.id}`;
             } else {
                 alert("Error al agregar el baboso");
             }
         }
 
+        function manejar_error(error) {
+            console.log("ERROR")
+            console.log(error);
+        }
+
         function crear_baboso(evento) {
-            event.preventDefault();
+            evento.preventDefault();
 
             const formData = new FormData(evento.target);
             
@@ -156,9 +165,9 @@
                 },
                 body: JSON.stringify(baboso)
             })
-                .then((res) => res.json())
+                .then(recibir_respuesta)
                 .then(procesar_respuesta)
-                .catch((error) => console.log("ERROR", error));
+                .catch(manejar_error);
         }
     </script>
 
