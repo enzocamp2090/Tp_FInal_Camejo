@@ -75,7 +75,7 @@
 
         document.getElementById("btnEdit").setAttribute("href", `/baboso/editar_baboso?id=${id}`);
 
-        function obtener_respuesta(respuesta) {
+        function recibir_respuesta(respuesta) {
             return respuesta.json();
         }
 
@@ -128,7 +128,7 @@
         }
 
         fetch(`http://localhost:5000/babosos/${id}`)
-            .then(obtener_respuesta)
+            .then(recibir_respuesta)
             .then(analizar_baboso)
             .catch(manejar_error);
 
@@ -142,8 +142,8 @@
         }
 
         function eliminar_baboso() {
-            const confirmation = confirm(`¿Estás seguro de que quieres eliminar al baboso ${id}?`);
-            if (!confirmation) {
+            const confirmacion = confirm(`¿Estás seguro de que quieres eliminar al baboso ${id}?`);
+            if (!confirmacion) {
                 return;
             }
 
@@ -151,7 +151,7 @@
                 `http://localhost:5000/babosos/${id}`,
                 { method: "DELETE" }
             )
-                .then((res) => res.json())
+                .then(recibir_respuesta)
                 .then(eliminar_respuesta)
                 .catch(manejar_error);
     }
