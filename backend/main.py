@@ -6,7 +6,6 @@ app = Flask(__name__)
 port = 5000
 CORS(app)
 
-# Configuración de la base de datos
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://enzo:121629@localhost:5432/babosos'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -26,8 +25,8 @@ def data():
             }
             babosos_data.append(baboso_data)
         return jsonify(babosos_data)
-    except Exception as e:
-        print(e)
+    except:
+        print("erorr")
         return jsonify({"mensaje": "no existe el baboso"}), 500
         
 @app.route("/babosos", methods=["POST"])
@@ -66,14 +65,6 @@ def nuevo_baboso():
         db.session.add(nuevo_baboso)
         db.session.commit()
         return jsonify({'id': nuevo_baboso.id, 'nombre': nuevo_baboso.nombre})
-    except Exception as e:
-        print(e)
+    except Exception:
+        print("erorr")
         return jsonify({'message': 'internal server error'}), 500
-
-if __name__ == '__main__':
-    print('Starting server...')
-    db.init_app(app)
-    with app.app_context():
-        db.create_all()
-    app.run(host='0.0.0.0', debug=True, port=port)
-    print('Started...')
