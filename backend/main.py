@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
+app.run(debug=True)
 port = 5000
 CORS(app)
 
@@ -70,22 +71,28 @@ def nuevo_baboso():
         print("erorr")
         return jsonify({'mensaje': 'Error del servidor'}), 500
 
-@app.route("/babosos/<id_baboso>", methods=["GET"])
+@app.route("/babosos/<id_baboso>", methods=["GET", "DELETE"])
 def nuevo_baboso(id_baboso):
-    baboso = Datos_baboso.query.where(Datos_baboso.id == id_baboso).first()
-    baboso_data = {
-        "nombre": baboso.nombre, 
-        "encuentro": baboso.encuentro, 
-        "tiempo_declaracion" : baboso.tiempo_declaracion, 
-        "aparicion" : baboso.aparicion, 
-        "frase_ingeniosa": baboso.frase_ingeniosa, 
-        "respuesta" : baboso.respuesta, 
-        "prop_indecentes" : baboso.prop_indecentes, 
-        "prop_previsibles" : baboso.prop_previsibles, 
-        "prop_divertidas" : baboso.prop_divertidas, 
-        "voto_autoestima" : baboso.voto_autoestima, 
-        "voto_insistente" : baboso.voto_insistente, 
-        "voto_originalidad" : baboso.voto_originalidad, 
-        "conclusion" : baboso.conclusion
-        }
-    return baboso_data
+    if request.method == 'GET':
+        baboso = Datos_baboso.query.where(Datos_baboso.id == id_baboso).first()
+        baboso_data = {
+            "nombre": baboso.nombre, 
+            "encuentro": baboso.encuentro, 
+            "tiempo_declaracion" : baboso.tiempo_declaracion, 
+            "aparicion" : baboso.aparicion, 
+            "frase_ingeniosa": baboso.frase_ingeniosa, 
+            "respuesta" : baboso.respuesta, 
+            "prop_indecentes" : baboso.prop_indecentes, 
+            "prop_previsibles" : baboso.prop_previsibles, 
+            "prop_divertidas" : baboso.prop_divertidas, 
+            "voto_autoestima" : baboso.voto_autoestima, 
+            "voto_insistente" : baboso.voto_insistente, 
+            "voto_originalidad" : baboso.voto_originalidad, 
+            "conclusion" : baboso.conclusion
+            }
+        return baboso_data
+    elif request.method == 'DELETE':
+        baboso_delete = Datos_baboso.query.get(id_baboso)
+        db.session.delete(baboso_delete)
+        db.session.commit()
+        return jsonify({"Mensaje": "Baboso eliminado"}), 200
