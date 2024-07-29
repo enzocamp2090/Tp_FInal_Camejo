@@ -167,7 +167,7 @@
             const respuesta = formData.get("respuesta");
             const veredicto = formData.get("veredicto");
 
-            fetch("http://localhost:5000/babosos", {
+            fetch(`http://localhost:5000/babosos/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
