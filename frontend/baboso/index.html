@@ -75,7 +75,9 @@
         document.getElementById("btnEdit").setAttribute("href", `/baboso/editar_baboso?id=${id}`);
 
         function recibir_respuesta(respuesta) {
-            return respuesta.json();
+            return respuesta.json().then(datos => {
+                return datos;
+            });
         }
 
         function analizar_baboso(baboso) {
@@ -129,13 +131,10 @@
             .catch(manejar_error);
 
         function eliminar_respuesta(datos) {
-            if (datos.success) {
-                alert("Baboso eliminado exitosamente");
-                window.location.href = "../index.html";
-            } else {
-                alert("Error al eliminar el baboso");
-            }
-        }
+
+
+            alert("Baboso eliminado exitosamente");
+            window.location.href = "../index.html";}
 
         function eliminar_baboso() {
             const confirmacion = confirm(`¿Estás seguro de que quieres eliminar al baboso ${id}?`);
