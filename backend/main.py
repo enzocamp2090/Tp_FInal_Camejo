@@ -1,5 +1,7 @@
 from models import db, Babosos, Datos_baboso
 from flask import Flask, request, jsonify
+from models import db, Babosos, Datos_baboso
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -7,6 +9,8 @@ app.run(debug=True)
 port = 5000
 CORS(app)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://enzo:121629@localhost:5432/babosos'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://enzo:121629@localhost:5432/babosos'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
