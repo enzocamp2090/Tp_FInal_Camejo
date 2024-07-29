@@ -25,7 +25,7 @@
     <main>
         <img id="imagen_portada" src="../imagenes/besos.jpeg" alt="">
         <section>
-            <form id="form_baboso" onsubmit="crear_baboso(evento)">
+            <form id="form_baboso" onsubmit="crear_baboso(event)">
                 <h2>Nuevo Baboso</h2>
                 <div class="info_basica">
                     <div>
@@ -118,12 +118,8 @@
         }
         
         function procesar_respuesta(datos) {
-            if (datos.success) {
-                alert("Baboso agregado exitosamente");
-                window.location.href = `/baboso?id=${datos.id}`;
-            } else {
-                alert("Error al agregar el baboso");
-            }
+            alert("Baboso agregado exitosamente");
+            window.location.href = `/baboso?id=${datos.id}`;
         }
 
         function manejar_error(error) {
@@ -131,11 +127,10 @@
             console.log(error);
         }
 
-        function crear_baboso(evento) {
-            evento.preventDefault();
-
-            const formData = new FormData(evento.target);
+        function crear_baboso(event) {
+            event.preventDefault();
             
+            const formData = new FormData(event.target); 
             const baboso = {
                 nombre: formData.get("nombre"),
                 lugar_acercamiento: formData.get("lugar_acercamiento"),
