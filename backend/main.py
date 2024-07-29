@@ -71,10 +71,10 @@ def nuevo_baboso():
         print("erorr")
         return jsonify({'mensaje': 'Error del servidor'}), 500
 
-@app.route("/babosos/<id_baboso>", methods=["GET", "DELETE"])
+@app.route("/babosos/<id_baboso>", methods=["GET", "DELETE", "PUT"])
 def nuevo_baboso(id_baboso):
+    baboso = Datos_baboso.query.where(Datos_baboso.id == id_baboso).first()
     if request.method == 'GET':
-        baboso = Datos_baboso.query.where(Datos_baboso.id == id_baboso).first()
         baboso_data = {
             "nombre": baboso.nombre, 
             "encuentro": baboso.encuentro, 
@@ -96,3 +96,21 @@ def nuevo_baboso(id_baboso):
         db.session.delete(baboso_delete)
         db.session.commit()
         return jsonify({"Mensaje": "Baboso eliminado"}), 200
+    elif request.method == 'PUT':
+        data_baboso = request.get_json()
+        baboso.nombre = data_baboso['nombre'], 
+        baboso.encuentro = data_baboso['encuentro'], 
+        baboso.tiempo_declaracion = data_baboso['tiempo_declaracion'], 
+        baboso.aparicion = data_baboso['aparicion'], 
+        baboso.frase_ingeniosa =  data_baboso['frase_ingeniosa'], 
+        baboso.espuesta = data_baboso['respuesta'], 
+        baboso.prop_indecentes = data_baboso['prop_indecentes'], 
+        baboso.prop_previsibles = data_baboso['prop_previsibles'], 
+        baboso.prop_divertidas = data_baboso['prop_divertidas'], 
+        baboso.voto_autoestima = data_baboso['voto_autoestima'], 
+        baboso.voto_insistente = data_baboso['voto_insistente'], 
+        baboso.voto_originalidad = data_baboso['voto_originalidad'], 
+        baboso.conclusion = data_baboso['conclusion']
+        db.session.commit()
+        return jsonify({"id": baboso.baboso_id, "nombre" : baboso.nombre}), 200
+
