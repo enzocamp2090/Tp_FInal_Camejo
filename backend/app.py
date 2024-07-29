@@ -74,7 +74,7 @@ def nuevo_baboso():
 
         nuevo_baboso = Baboso(
             nombre=nombre,
-            datos_baboso_id=nuevo_dato_baboso.id  # Ajustado para usar datos_baboso_id
+            datos_baboso_id=nuevo_dato_baboso.id 
         )
 
         db.session.add(nuevo_baboso)
